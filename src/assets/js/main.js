@@ -10,6 +10,7 @@ onload = function() {
   let deferredPrompt;
   const button = document.getElementById('install-button');
 
+  // Chromeが出すプロンプトを抑止し退避しておく
   addEventListener('beforeinstallprompt', function(e) {
     e.preventDefault();
     deferredPrompt = e;
@@ -17,6 +18,7 @@ onload = function() {
     return false;
   });
 
+  // ボタンをクリックしたら退避しておいたプロンプト表示処理を実行
   button.addEventListener('click', function() {
     if(deferredPrompt !== undefined) {
       deferredPrompt.prompt();
