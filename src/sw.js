@@ -56,16 +56,19 @@ self.addEventListener('install', event => {
 
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(cacheNames =>
-      Promise.all(
-        cacheNames.map(cacheName => {
-          if ([CACHE_NAME].indexOf(cacheName) === -1) {
-            console.log('delete cache', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
+    caches
+      .keys()
+      .then(cacheNames =>
+        Promise.all(
+          cacheNames.map(cacheName => {
+            if ([CACHE_NAME].indexOf(cacheName) === -1) {
+              console.log('delete cache', cacheName);
+              return caches.delete(cacheName);
+            }
+          })
+        )
       )
-    )
+      .catch(console.log)
   );
 });
 
@@ -77,9 +80,7 @@ self.addEventListener('fetch', event => {
         return response;
       } else {
         console.log('not exist in cache');
-        return fetch(event.request)
-          .then(response => response)
-          .catch(console.log);
+        return fetch(event.request).catch(console.log);
       }
     })
   );
