@@ -1,9 +1,8 @@
 const CACHE_NAME = 'pwa-sample-v3';
 const urlsToCache = [
   '/pwa_sample/assets/css/0.styles.css',
-  '/pwa_sample/assets/js/2.cda51ec0.js',
-  '/pwa_sample/assets/js/2.cda51ec0.js',
-  '/pwa_sample/assets/js/3.9e80b1cb.js',
+  '/pwa_sample/assets/js/2.js',
+  '/pwa_sample/assets/js/3.js',
   '/pwa_sample/assets/js/4.js',
   '/pwa_sample/assets/js/5.js',
   '/pwa_sample/assets/js/6.js',
