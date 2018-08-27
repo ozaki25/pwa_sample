@@ -6,20 +6,21 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+onload = function() {
+  let deferredPrompt;
+  const button = document.getElementById('install-button');
 
-let deferredPrompt;
+  addEventListener('beforeinstallprompt', function(e) {
+    e.preventDefault();
+    deferredPrompt = e;
+    button.disabled = false;
+    return false;
+  });
 
-addEventListener('beforeinstallprompt', function(e) {
-  console.log('beforeinstallprompt Event fired');
-  e.preventDefault();
-  deferredPrompt = e;
-  document.getElementById('install-button').disabled = false;
-  return false;
-});
-
-document.getElementById('install-button').addEventListener('click', function() {
-  if(deferredPrompt !== undefined) {
-    deferredPrompt.prompt();
-    deferredPrompt = null;
-  }
-});
+  button.addEventListener('click', function() {
+    if(deferredPrompt !== undefined) {
+      deferredPrompt.prompt();
+      deferredPrompt = null;
+    }
+  });
+}
