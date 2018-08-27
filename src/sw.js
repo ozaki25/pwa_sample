@@ -48,7 +48,7 @@ self.addEventListener('install', function(event) {
     caches.open(CACHE_NAME).then(function(cache) {
       console.log('opened cache');
       return cache.addAll(urlsToCache);
-    })
+    }).catch(console.log)
   );
 });
 
