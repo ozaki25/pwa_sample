@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pwa-sample-v3';
+const CACHE_NAME = 'pwa-sample-v5';
 const urlsToCache = [
   '/pwa_sample/assets/css/0.styles.css',
   '/pwa_sample/assets/js/2.js',
