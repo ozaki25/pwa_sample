@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pwa-sample';
+const CACHE_NAME = 'pwa-sample-v3';
 const urlsToCache = [
   '/assets/css/0.styles.7775a0d8.css',
   '/assets/js/2.cda51ec0.js',
@@ -13,6 +13,7 @@ const urlsToCache = [
   '/assets/js/10.a7cb3a8f.js',
   '/assets/js/11.500572b9.js',
   '/assets/js/app.e796080a.js',
+  '/assets/js/main.js',
   '/assets/images/1/hotreload.gif',
   '/assets/images/1/template.png',
   '/assets/images/2/hello.png',
@@ -32,6 +33,7 @@ const urlsToCache = [
   '/assets/images/6/router.gif',
   '/assets/images/6/router2.gif',
   '/assets/images/6/router3.gif',
+  '/assets/img/search.83621669.svg',
   '1_setup.html',
   '2_initialfile.html',
   '3_hello.html',
@@ -43,30 +45,42 @@ const urlsToCache = [
   'index.html',
 ];
 
-self.addEventListener('install', function(event) {
+self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(function(cache) {
-      console.log('opened cache');
-      return cache.addAll(urlsToCache);
-    }).catch(console.log)
+    caches
+      .open(CACHE_NAME)
+      .then(cache => cache.addAll(urlsToCache))
+      .catch(console.log)
   );
 });
 
-self.addEventListener('fetch', function(event) {
-  console.log(event);
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames =>
+      Promise.all(
+        cacheNames.map(cacheName => {
+          if ([CACHE_NAME].indexOf(cacheName) === -1) {
+            console.log('delete cache', cacheName);
+            return caches.delete(cacheName);
+          }
+        })
+      )
+    )
+  );
+});
+
+self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(function(response) {
+    caches.match(event.request).then(response => {
       if (response) {
         console.log('exist in cache', response.url);
         return response;
+      } else {
+        console.log('not exist in cache');
+        return fetch(event.request)
+          .then(response => response)
+          .catch(console.log);
       }
-      console.log('not exist in cache');
-      return fetch(event.request)
-        .then(function(response) {
-          console.log(response.url);
-          return response;
-        })
-        .catch(console.log);
     })
   );
 });
