@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>2.雛形の整理 | ReactHandson</title>
     <meta name="description" content="">
-    
-    
-    <link rel="preload" href="/assets/css/0.styles.7775a0d8.css" as="style"><link rel="preload" href="/assets/js/app.e796080a.js" as="script"><link rel="preload" href="/assets/js/5.9742906c.js" as="script"><link rel="prefetch" href="/assets/js/2.cda51ec0.js"><link rel="prefetch" href="/assets/js/3.9e80b1cb.js"><link rel="prefetch" href="/assets/js/4.e8f43cf9.js"><link rel="prefetch" href="/assets/js/6.45d077d6.js"><link rel="prefetch" href="/assets/js/7.3d93238c.js"><link rel="prefetch" href="/assets/js/8.04203a0c.js"><link rel="prefetch" href="/assets/js/9.8c068cc8.js"><link rel="prefetch" href="/assets/js/10.a7cb3a8f.js"><link rel="prefetch" href="/assets/js/11.500572b9.js">
+    <script src="/assets/js/main.js"></script>
     <link rel="stylesheet" href="/assets/css/0.styles.7775a0d8.css">
   </head>
   <body>
@@ -34,7 +32,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>root<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
-</code></pre></div><h3 id="動作確認"><a href="#動作確認" aria-hidden="true" class="header-anchor">#</a> 動作確認</h3> <ul><li>この状態で<code>npm start</code>すると画面に<code>Hello World</code>が表示される</li></ul> <p><img src="/images/2/hello.png" alt="hello"></p> <h2 id="ファイル一覧"><a href="#ファイル一覧" aria-hidden="true" class="header-anchor">#</a> ファイル一覧</h2> <ul><li>ここまでで以下のようなディレクトリ構成になった</li></ul> <div class="language- extra-class"><pre class="language-text"><code>.
+</code></pre></div><h3 id="動作確認"><a href="#動作確認" aria-hidden="true" class="header-anchor">#</a> 動作確認</h3> <ul><li>この状態で<code>npm start</code>すると画面に<code>Hello World</code>が表示される</li></ul> <p><img src="/assets/images/2/hello.png" alt="hello"></p> <h2 id="ファイル一覧"><a href="#ファイル一覧" aria-hidden="true" class="header-anchor">#</a> ファイル一覧</h2> <ul><li>ここまでで以下のようなディレクトリ構成になった</li></ul> <div class="language- extra-class"><pre class="language-text"><code>.
 ├── node_modules    // 外部ライブラリ
 ├── README.md       // プロジェクトの説明などを記載するファイル
 ├── package.json    // 依存するライブラリなどを記載するファイル
@@ -67,7 +65,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
 ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>App</span> <span class="token punctuation">/&gt;</span></span><span class="token punctuation">,</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre></div><ul><li>最後の行に注目する
 <ul><li>ReactDOMのrenderメソッドを呼んでいる
-<ul><li>App.jsの内容(<code>&lt;h1&gt;Hello World&lt;/h1&gt;</code>)をid属性がrootの要素(index.htmlにあるdivタグ)に挿入する、という動きをする</li></ul></li></ul></li></ul> <p><img src="/images/2/reactdom.png" alt="reactdom"></p> <ul><li>つまりApp.jsの内容を拡張していくことで、画面に表示する内容を拡張していくことができる</li></ul> <blockquote><h4 id="メモ-2"><a href="#メモ-2" aria-hidden="true" class="header-anchor">#</a> メモ</h4> <ul><li>JavaScriptでは外部ライブラリや別ファイルを<code>import</code>で読み込む</li> <li>自作のファイルは相対パスで指定する</li> <li>拡張子が<code>.js</code>の場合は省略できる</li></ul></blockquote> <h3 id="まとめ"><a href="#まとめ" aria-hidden="true" class="header-anchor">#</a> まとめ</h3> <ul><li>これまでの3つのファイルを整理すると
+<ul><li>App.jsの内容(<code>&lt;h1&gt;Hello World&lt;/h1&gt;</code>)をid属性がrootの要素(index.htmlにあるdivタグ)に挿入する、という動きをする</li></ul></li></ul></li></ul> <p><img src="/assets/images/2/reactdom.png" alt="reactdom"></p> <ul><li>つまりApp.jsの内容を拡張していくことで、画面に表示する内容を拡張していくことができる</li></ul> <blockquote><h4 id="メモ-2"><a href="#メモ-2" aria-hidden="true" class="header-anchor">#</a> メモ</h4> <ul><li>JavaScriptでは外部ライブラリや別ファイルを<code>import</code>で読み込む</li> <li>自作のファイルは相対パスで指定する</li> <li>拡張子が<code>.js</code>の場合は省略できる</li></ul></blockquote> <h3 id="まとめ"><a href="#まとめ" aria-hidden="true" class="header-anchor">#</a> まとめ</h3> <ul><li>これまでの3つのファイルを整理すると
 <ul><li>index.html・・・空っぽのdivタグを配置(id属性にrootを設定)</li> <li>App.js・・・h1タグを返す関数</li> <li>index.js・・・id属性がrootのdivタグに、App.jsの内容(つまりh1タグ)を挿入している</li></ul></li> <li>App.jsに当たる部分を拡張していくことでアプリを作っていく</li></ul></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
         ←
         <a href="/1_setup.html" class="prev">
