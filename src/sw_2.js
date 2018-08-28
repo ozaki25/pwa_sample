@@ -9,5 +9,5 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-  console.log('intercept fatch request');
+  console.log('intercept fetch request');
 });
